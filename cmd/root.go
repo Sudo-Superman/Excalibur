@@ -1,7 +1,21 @@
 // Package cmd contains the command line interface for excalibur
 package cmd
 
-import "github.com/fatih/color"
+import (
+	"fmt"
+	"github.com/fatih/color"
+	"github.com/spf13/cobra"
+	"os"
+)
+
+var rootCmd = &cobra.Command{
+	Use: "excalibur",
+	Short: "A Next Generation APT Scanner via Go",
+	Run: func(cmd *cobra.Command, args []string) {
+		// Do stuff here
+		Greeting()
+	},
+}
 
 func Greeting() {
 	color.HiGreen(`
@@ -15,6 +29,10 @@ ___________                            .__    .__  ___.
                    A Next Generation APT Scanner via Go`)
 }
 
-func Init()  {
-	Greeting()
+func Execute()  {
+	//Greeting()
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
 }

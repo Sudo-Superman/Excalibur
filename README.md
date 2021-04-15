@@ -1,3 +1,5 @@
-# Excalibur
+<p align="center">
+# 🕵️ Excalibur
 
-A Next Generation APT Scanner via Go
+<u><b> A Next Generation APT Scanner via Go. </b></u>
+</p>
